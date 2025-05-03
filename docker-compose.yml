@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  spotfire:
+    build: .
+    container_name: spotfire_vulnerable
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./exploit:/opt/exploit
+    networks:
+      - spotfire_net
+
+networks:
+  spotfire_net:
+    driver: bridge
